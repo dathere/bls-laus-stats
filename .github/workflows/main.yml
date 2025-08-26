@@ -1,0 +1,52 @@
+name: Fetch BLS Data
+
+on:
+  schedule:
+    - cron: '0 0 23 * *'  # Runs at midnight on the 23rd day of each month
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker image
+      run: docker build -t bls-unemployment .
+
+    - name: Create output directory
+      run: mkdir -p output
+
+    - name: Run Docker container
+      env:
+        BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+      run: docker run --rm -e BLS_API_KEY=${{ secrets.BLS_API_KEY }} -v ${{ github.workspace }}/output:/app/output bls-unemployment
+
+    - name: Upload state unemployment CSV as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: stateUnemployment
+        path: output/stateUnemployment.csv
+
+    - name: Upload county unemployment CSV as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: countyUnemployment
+        path: output/countyUnemployment.csv
+
+    - name: Upload place unemployment CSV as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: placeUnemployment
+        path: output/placeUnemployment.csv
+        
+    - name: Upload Unemployment data CSV as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Unemployment_data
+        path: output/Unemployment_data.csv

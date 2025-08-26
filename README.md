@@ -7,9 +7,9 @@ A comprehensive data collection tool that automatically fetches seasonally adjus
 This repository automatically retrieves monthly unemployment data for:
 - **All 50 U.S. States** + DC and territories
 - **3,000+ Counties** and county equivalents 
-- **4,500+ Cities and Places** (including all cities with 25,000+ population)
+- **2,000+ Cities and Places** (including all cities with 25,000+ population)
 
-The data is fetched directly from the BLS Public API and compiled into clean CSV files with over 7,500 geographic areas covered.
+The data is fetched directly from the BLS Public API and compiled into clean CSV files with over 5,000 geographic areas covered.
 
 ## 🏗️ Repository Structure
 

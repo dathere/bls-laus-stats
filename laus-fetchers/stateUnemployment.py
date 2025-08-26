@@ -12,7 +12,7 @@ def get_data(place_series_ids, df):
     
     payload = {
         "seriesid": place_series_ids,
-        "startyear": "2000",
+        "startyear": "2020",
         "endyear": "2025",
         "annualaverage": True,
         "catalog": True,

@@ -6,7 +6,7 @@ import pandas as pd
 def get_data(county_series_ids, df):
     url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
     registration_key = os.getenv('BLS_API_KEY')  
-    with open('../series-ids/state_abbreviations.json', 'r') as file:
+    with open('series-ids/state_abbreviations.json', 'r') as file:
         state_abbreviations = json.load(file)
     
     
@@ -51,7 +51,7 @@ def get_data(county_series_ids, df):
 
 full_df = pd.DataFrame(columns=["GeoID", "Series ID", "Place", "Year", "Month", "Unemployment Rate"])
 
-with open('../series-ids/series_ids_county_master.json', 'r') as file:
+with open('series-ids/series_ids_county_master.json', 'r') as file:
     series_ids_data = json.load(file)
 
 all_series_ids = series_ids_data.get('series_ids', [])

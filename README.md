@@ -29,8 +29,8 @@ Seasonally adjusted unemployment rates remove predictable seasonal patterns (lik
 ├── requirements.txt             # Python dependencies
 ├── laus-fetchers/              # Core data fetching scripts
 │   ├── stateUnemployment.py    # Fetches state-level data
-│   ├── countyUnemployment.py   # Fetches county-level data
-│   ├── placeUnemployment.py    # Fetches city/place-level data
+│   ├── ~~countyUnemployment.py~~   # Discontinued
+│   ├── ~~placeUnemployment.py~~    # Discontinued
 │   └── merger.py               # Combines all data into single CSV
 ├── series-ids/                 # BLS series ID configurations
 │   ├── series_ids_states.json        # State series IDs

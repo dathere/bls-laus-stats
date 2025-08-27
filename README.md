@@ -1,15 +1,23 @@
 # BLS Unemployment Data Retriever
 
-A comprehensive data collection tool that automatically fetches seasonally adjusted unemployment statistics for the entire United States from the Bureau of Labor Statistics (BLS) Local Area Unemployment Statistics (LAUS) program.
+A comprehensive data collection tool that automatically fetches seasonally adjusted unemployment statistics for U.S. states from the Bureau of Labor Statistics (BLS) Local Area Unemployment Statistics (LAUS) program.
+
 
 ## 🔍 What This Repository Does
 
-This repository automatically retrieves monthly unemployment data for:
-- **All 50 U.S. States** + DC and territories
-- **3,000+ Counties** and county equivalents 
-- **2,000+ Cities and Places** (including all cities with 25,000+ population)
+This repository automatically retrieves monthly **seasonally adjusted** unemployment data for:
+- **All 50 U.S. States** + District of Columbia and Puerto Rico
 
-The data is fetched directly from the BLS Public API and compiled into clean CSV files with over 5,000 geographic areas covered.
+**Important Note:** The BLS only provides seasonally adjusted unemployment rates at the state level and above. Counties, cities, and local areas receive unemployment data on a **not seasonally adjusted basis only**. This repository focuses specifically on seasonally adjusted data to provide the most accurate month-to-month unemployment comparisons.
+
+## 📊 Why Seasonally Adjusted Data?
+
+Seasonally adjusted unemployment rates remove predictable seasonal patterns (like holiday hiring or agricultural cycles) to reveal underlying economic trends. The BLS uses sophisticated **Signal-Plus-Noise Models** for state-level data that can reliably separate seasonal patterns from true economic changes, making this data ideal for:
+- Month-to-month unemployment trend analysis
+- Economic policy analysis
+- Business cycle research
+- Media reporting on employment conditions
+
 
 ## 🏗️ Repository Structure
 
@@ -42,7 +50,7 @@ The data is fetched directly from the BLS Public API and compiled into clean CSV
 Each fetcher script contains configurable parameters that you can modify:
 
 #### Year Range Configuration
-In each Python script (`stateUnemployment.py`, `countyUnemployment.py`, `placeUnemployment.py`), look for the payload section:
+In the python script look for the payload section:
 
 ```python
 payload = {
@@ -72,9 +80,7 @@ The repository includes a GitHub Actions workflow (`.github/workflows/fetch_data
 ## 📈 Output Data
 
 ### Generated Files
-- `stateUnemployment.csv` - State-level unemployment rates
-- `countyUnemployment.csv` - County-level unemployment rates  
-- `placeUnemployment.csv` - City/place-level unemployment rates
+
 - `Unemployment_data.csv` - **Combined dataset** with all geographic levels
 
 ### Data Schema

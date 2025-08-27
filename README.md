@@ -1,7 +1,5 @@
 # BLS Unemployment Data Retriever
 
-A comprehensive data collection tool that automatically fetches seasonally adjusted unemployment statistics for U.S. states from the Bureau of Labor Statistics (BLS) Local Area Unemployment Statistics (LAUS) program.
-
 
 ## 🔍 What This Repository Does
 

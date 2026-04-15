@@ -12,8 +12,8 @@ def get_data(county_series_ids, df):
     
     payload = {
         "seriesid": county_series_ids,
-        "startyear": "2025",
-        "endyear": "2025",
+        "startyear": "2026",
+        "endyear": "2026",
         "annualaverage": True,
         "catalog": True,
         "registrationkey": registration_key

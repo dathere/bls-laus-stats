@@ -2,6 +2,9 @@ import os
 import requests
 import json
 import pandas as pd
+from datetime import datetime
+
+current_year = datetime.now().year
 
 def get_data(place_series_ids, df):
     url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
@@ -12,8 +15,8 @@ def get_data(place_series_ids, df):
     
     payload = {
         "seriesid": place_series_ids,
-        "startyear": "2026",
-        "endyear": "2026",
+        "startyear": str(current_year - 1),
+        "endyear": str(current_year),
         "annualaverage": True,
         "catalog": True,
         "registrationkey": registration_key
